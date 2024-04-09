@@ -1,0 +1,9 @@
+<h1 class="mb-0"><%= @pages.first.folder %></h1>
+<div class="container">
+  <%= render partial: 'nodes/graph', locals: { folder_id: @folder_id, folder_name: @pages.first.folder, title_id: "folder" } %>
+  <ul>
+    <% @pages.each do |page| %>
+      <li><a href="/<%= @folder_id %>/<%= page.title_id %>"><%= page.title %></a></li>
+    <% end %>
+  </ul>
+</div>

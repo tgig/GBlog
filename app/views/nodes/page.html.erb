@@ -1,0 +1,29 @@
+<div class="container">
+  <%= render partial: 'nodes/graph', locals: { folder_id: @page.folder_id, folder_name: @page.title_id, title_id: @page.title_id } %>
+  <div class="mb-5">
+    <%= @page.content&.html_safe %>
+  </div>
+  <hr class="mb-5" />
+  <div class="container mb-5 text-secondary">
+    <% if @page.source.present? %>
+      <h5>Source:</h5>
+      <ul>
+        <%= @page.source&.html_safe %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="container mb-5 text-secondary">
+    <% if @link_graph.present? %>
+      <div class="mb-5 text-secondary">
+        <h5>Graph:</h5>
+        <ul style="font-size: .8em;">
+          <% @link_graph.each do |link| %>
+            <li>
+              <%= graph_link_element(link, @page_graph, @page) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
