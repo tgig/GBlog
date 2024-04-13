@@ -46,6 +46,3 @@
 /vendor/bundle/
 /.ruby-version
 /.gitattributes
-/lib/assets/nodes/*
-/lib/assets/posts/*
-/lib/assets/.keep
