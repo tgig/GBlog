@@ -31,15 +31,18 @@ export default class extends Controller {
 
   createGraph(data) {
     const width = document.body.clientWidth,
-      height = this.sumOfPageRanks(data.pages),
-      svg = d3
-        .select(this.graphContainerTarget)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+    height = this.sumOfPageRanks(data.pages),
+    container = d3.select(this.graphContainerTarget);
 
-    const nodes = data.pages.map((d) => Object.create(d))
-    const links = data.links.map((d) => Object.create(d))
+    container.select("svg").remove();
+
+    const svg = container
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const nodes = data.pages.map((d) => Object.create(d));
+    const links = data.links.map((d) => Object.create(d));
 
     const simulation = d3
       .forceSimulation()

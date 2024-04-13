@@ -24,7 +24,7 @@ class NodesController < ApplicationController
   end
 
   def get_link_and_page_graph
-    
+
     # Step 1: Retrieve the initial set of pages based on folder_id and optionally title_id
     if node_params[:title_id].present? && node_params[:title_id] == "index"
       pages = Page.all
@@ -117,8 +117,7 @@ class NodesController < ApplicationController
     link_text = link_title if link_text.blank?
     
     if linked_page.present?
-      # FIX ME
-      # "[#{link_text}](/nodes/#{linked_page.title_id})"
+      "[#{link_text}](/#{linked_page.folder_id}/#{linked_page.title_id})"
     else
       puts "ERROR: Link not found: #{link_title}"
     end

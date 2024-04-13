@@ -1,4 +1,16 @@
 <div data-controller="graph" data-graph-folder-id-value="<%= folder_id %>" data-graph-title-id-value="<%= title_id %>">
+  <div class="row text-sm d-inline-block text-truncate">
+    <% if folder_name.present? %>
+      <a href="/">Home</a> &nbsp;&gt;&nbsp;
+      <a href="/<%= folder_id %>"><%= folder_name %></a>
+      <% if title_name.present? %>
+        &nbsp;&gt;&nbsp;
+        <span class="text-secondary" style="max-width: calc(100% - 120px);">
+          <%= title_name %>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
   <div id="graphIt" class="landscape" data-graph-target="graphContainer">
   </div>
 </div>

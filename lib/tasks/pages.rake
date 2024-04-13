@@ -45,7 +45,7 @@ namespace :pages do
           source: source_match,
           relevant: relevant_match,
           content: body&.strip,
-          weight: 0,
+          page_rank: 0,
           color: color
         )
 
@@ -87,6 +87,8 @@ namespace :pages do
       end
     end
 
+    # Calculate page rank weights
+    Page.calculate_page_rank
   end
 
   def folder_name(markdown_file_path, root_path, dir)

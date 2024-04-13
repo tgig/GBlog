@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render partial: 'nodes/graph', locals: { folder_id: @page.folder_id, folder_name: @page.title_id, title_id: @page.title_id } %>
+  <%= render partial: 'nodes/graph', locals: { folder_id: @page.folder_id, folder_name: @page.folder, title_id: @page.title_id, title_name: @page.title } %>  
   <div class="mb-5">
     <%= @page.content&.html_safe %>
   </div>
