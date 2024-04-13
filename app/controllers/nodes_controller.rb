@@ -65,6 +65,19 @@ class NodesController < ApplicationController
 
   end
 
+  def old_to_new
+    redirect_to root_path if params[:old_id].blank?
+    old_id = params[:old_id].gsub('.html', '')
+    
+    page = Page.where("title LIKE ?", "#{old_id} %")&.first
+
+    if page.present?
+      redirect_to page_path(page.folder_id, page.title_id), status: :moved_permanently
+    else
+      render_404
+    end
+  end
+
   private
 
   def render_404
@@ -83,7 +96,10 @@ class NodesController < ApplicationController
   end
 
   def htmlize_source
+    return if @page.source.blank?
+
     source = @page.source
+    source = "" if source == "Me"
 
     # turn [[link]] into <a href>
     source = source.gsub(/\[\[(.*?)\]\]/) do |match|

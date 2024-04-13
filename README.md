@@ -1,24 +1,28 @@
-# README
+# GBlog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GBlog is a site to visualize my odd method of taking notes and connecting thoughts.
 
-Things you may want to cover:
+I take plain text notes and push it to the Miki repo, whereupon an action is kicked off to recompile and publish this site.
 
-* Ruby version
+## Run
 
-* System dependencies
+```
+rails s
+```
 
-* Configuration
+## Compile database
 
-* Database creation
+Rake task to move note content from text files into a sqlite database.
 
-* Database initialization
+```
+rails pages:load
+```
 
-* How to run the test suite
+## Deploy
 
-* Services (job queues, cache servers, search engines, etc.)
+Content is automatically deployed when a push to `main` branch happens
 
-* Deployment instructions
-
-* ...
+```
+git checkout main
+git push
+```
