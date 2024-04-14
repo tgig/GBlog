@@ -72,8 +72,11 @@ group :test do
   gem "webdrivers"
 end
 
+group :production do
+  gem 'passenger'
+end
+
 gem 'kramdown'
 gem 'bootstrap', '~> 4.5.2'
 gem "d3-rails"
 gem "color"
-gem 'passenger'
