@@ -27,7 +27,7 @@ class NodesController < ApplicationController
 
     # Step 1: Retrieve the initial set of pages based on folder_id and optionally title_id
     if node_params[:title_id].present? && node_params[:title_id] == "index"
-      pages = Page.all
+      pages = Page.where.not(folder: '115 CFA')
     elsif node_params[:folder_id].present? && node_params[:title_id] == "folder"
       pages = Page.where(folder_id: node_params[:folder_id]) 
     elsif node_params[:title_id].present?
