@@ -46,7 +46,8 @@ ssh redatavpn
 
 Attach to screen, stop web server, refresh content, re-start web server
 ```
-screen -ls gblog
+screen -ls gblog     # List screen sessions
+screen -r gblog      # Attach to the gblog screen session
 <stop server: ctrl-c>
 git pull
 RAILS_ENV=production rails s
