@@ -1,3 +1,4 @@
+<% content_for :title do %><%= @pages.first.folder %><% end %>
 <div class="container">
   <%= render partial: 'nodes/graph', locals: { folder_id: @folder_id, folder_name: @pages.first.folder, title_id: "folder", title_name: "" } %>
   <h1 class="mb-0"><%= @pages.first.folder %></h1>
